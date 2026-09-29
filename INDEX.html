@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yeyocompany - Inicio</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-teal: #0d6e6e;
+            --bg-light-teal: #eaf4f4;
+            --nav-bg-blue: #cce3f7;
+            --text-dark: #212529;
+            --sidebar-width: 90px;
+            --bottombar-height: 70px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light-teal);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* --- Contenedor Principal --- */
+        .app-wrapper {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding-right: var(--sidebar-width);
+            position: relative;
+            background-color: var(--bg-light-teal);
+            z-index: 1;
+        }
+
+        /* --- Barra Superior (Header) --- */
+        .top-header {
+            background-color: #ffffff;
+            padding: 15px 30px;
+            z-index: 10;
+            position: relative;
+        }
+
+        .brand-title {
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        .search-input-group {
+            max-width: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #ced4da;
+        }
+
+        .search-input-group .input-group-text,
+        .search-input-group .form-control {
+            border: none;
+            background: #ffffff;
+            box-shadow: none;
+        }
+
+        /* --- Fondo Verde Curvo --- */
+        .teal-background-shape {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 180px;
+            background-color: var(--primary-teal);
+            border-bottom-right-radius: 45% 30px;
+            z-index: -1;
+        }
+
+        /* --- Tarjetas (Cards) --- */
+        .content-card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #e0e0e0;
+            padding: 30px;
+            height: 100%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .text-teal {
+            color: var(--primary-teal) !important;
+        }
+
+        /* --- Carrusel Rediseñado y Optimizado --- */
+        .carousel-container {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            background-color: #fff;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .custom-carousel-btn {
+            width: 44px;
+            height: 44px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.85;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            margin: 0 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+        }
+
+        .custom-carousel-btn:hover {
+            background-color: #ffffff;
+            opacity: 1;
+            transform: translateY(-50%) scale(1.08);
+        }
+
+        .custom-carousel-icon {
+            color: var(--primary-teal);
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .carousel-indicators {
+            position: relative;
+            margin-top: 15px;
+            margin-bottom: 0;
+        }
+
+        .carousel-indicators [data-bs-target] {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background-color: var(--primary-teal);
+            border: none;
+            margin: 0 6px;
+            opacity: 0.35;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-indicators .active {
+            opacity: 1;
+            transform: scale(1.25);
+        }
+
+        /* --- Footer Pequeño --- */
+        .main-footer {
+            background-color: #ffffff;
+            border-top: 1px solid #e0e0e0;
+            padding: 15px 30px;
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: #6c757d;
+            padding-right: calc(var(--sidebar-width) + 30px);
+        }
+
+        .main-footer a {
+            color: #6c757d;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .main-footer a:hover {
+            color: var(--primary-teal);
+        }
+
+        /* --- Barra de Navegación (Sidebar / Bottom bar) --- */
+        .navigation-bar {
+            background-color: var(--nav-bg-blue);
+            position: fixed;
+            display: flex;
+            z-index: 1050;
+        }
+
+        .nav-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+}
+
+.nav-icon span {
+    font-size: 0.65rem;
+    font-weight: 600;
+}
+
+        .btn-cerrar-sesion {
+            background-color: #ffffff;
+            color: #333;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        /* --- MEDIA QUERIES (Responsive) --- */
+        @media (min-width: 992px) {
+            .navigation-bar {
+                right: 0;
+                top: 0;
+                width: var(--sidebar-width);
+                height: 100vh;
+                flex-direction: column;
+                padding: 30px 0;
+                align-items: center;
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .main-content {
+                padding-right: 0;
+            }
+            .navigation-bar {
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: var(--bottombar-height);
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                padding: 0 10px;
+            }
+            .nav-icon {
+                font-size: 1.5rem;
+            }
+            .btn-cerrar-sesion {
+                font-size: 0.8rem;
+                padding: 6px 8px;
+            }
+            .teal-background-shape {
+                height: 120px;
+            }
+            .carousel-item img {
+                height: 260px;
+            }
+            .main-footer {
+                padding-right: 20px;
+                padding-bottom: calc(var(--bottombar-height) + 15px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-wrapper">
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        
+        <!-- Header -->
+        <header class="top-header d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+            <div class="d-flex justify-content-between align-items-center w-100 w-md-auto">
+                <h1 class="brand-title">Yeyocompany</h1>
+                <i class="bi bi-search fs-4 d-md-none text-secondary"></i>
+            </div>
+            
+            <!-- Barra de Búsqueda -->
+            <div class="input-group search-input-group w-100">
+                <span class="input-group-text"><i class="bi bi-search text-secondary"></i></span>
+                <input type="text" class="form-control" placeholder="Buscar...">
+            </div>
+        </header>
+
+        <!-- Contenedor del contenido con fondo curvo -->
+        <div class="position-relative">
+            <div class="teal-background-shape"></div>
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    
+                    <!-- Columna Izquierda (Carrusel) -->
+                    <div class="col-lg-7 order-1">
+                        <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner carousel-container">
+                                <div class="carousel-item active">
+                                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80" class="d-block w-100" alt="Reunión de negocios">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" class="d-block w-100" alt="Equipo de trabajo">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80" class="d-block w-100" alt="Estrategia digital">
+                                </div>
+                            </div>
+                            
+                            <!-- Controles del Carrusel -->
+                            <button class="carousel-control-prev custom-carousel-btn" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                                <i class="bi bi-chevron-left custom-carousel-icon"></i>
+                                <span class="visually-hidden">Anterior</span>
+                            </button>
+                            <button class="carousel-control-next custom-carousel-btn" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                                <i class="bi bi-chevron-right custom-carousel-icon"></i>
+                                <span class="visually-hidden">Siguiente</span>
+                            </button>
+                            
+                            <!-- Indicadores -->
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha (Texto explicativo) -->
+                    <div class="col-lg-5 order-2">
+                        <div class="content-card">
+                            <p class="fw-semibold">En YeyoCompany transformamos la visión de empresas y emprendedores en realidades digitales de alto impacto. Comprendemos que en un mercado tan competitivo, no basta con tener presencia en internet; es indispensable destacar a través de estrategias integrales de marketing digital, desarrollo web a medida, publicidad estratégica y asesorías especializadas.</p>
+                            
+                            <p class="fw-semibold">Nuestro equipo trabaja de la mano con cada cliente, analizando a fondo su modelo de negocio para diseñar planes de acción personalizados que abarquen las siguientes áreas clave:</p>
+                            
+                            <ul class="fw-semibold ps-3">
+                                <li class="mb-2"><strong>Desarrollo Web Avanzado:</strong> Sitios y plataformas corporativas rápidas, seguras y optimizadas para maximizar la tasa de conversión.</li>
+                                <li class="mb-2"><strong>Publicidad Digital & Performance:</strong> Campañas altamente segmentadas diseñadas para atraer tráfico cualificado y acelerar las ventas.</li>
+                                <li class="mb-2"><strong>Asesoría Estratégica:</strong> Acompañamiento continuo y consultoría de negocios para escalar tu infraestructura digital paso a paso.</li>
+                            </ul>
+
+                            <p class="fw-semibold mb-0">A través de un enfoque metodológico sólido, nos aseguramos de que cada esfuerzo se traduzca en una mayor captación de clientes, incremento en ingresos y un posicionamiento de marca imbatible. Nuestros servicios son estrictamente profesionales y se adaptan a las necesidades reales de tu ecosistema comercial.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta Inferior (Soluciones) -->
+                    <div class="col-lg-7 order-3">
+                        <div class="content-card">
+                            <h4 class="fw-bold text-teal mb-3">Soluciones que hacen crecer tu negocio</h4>
+                            <p class="fw-semibold">En YeyoCompany, creemos firmemente que la tecnología y el marketing digital deben ser inversiones estratégicas, no gastos. Por ello, diseñamos planes de pago flexibles y altamente adaptables al ciclo de vida y a la capacidad de cada empresa, desde startups emergentes hasta negocios consolidados.</p>
+                            <p class="fw-semibold">Nuestro objetivo primordial es garantizar un crecimiento sostenible, optimizando tus canales digitales bajo pilares fundamentales:</p>
+                            
+                            <div class="d-flex align-items-center flex-column flex-sm-row gap-4 mt-3">
+                                <div>
+                                    <i class="bi bi-bar-chart-fill text-teal" style="font-size: 5rem; line-height: 1;"></i>
+                                </div>
+                                <div>
+                                    <ul class="fw-semibold ps-3 mb-0">
+                                        <li class="mb-2"><strong>Maximización del Retorno de Inversión (ROI):</strong> Ejecutamos estrategias precisas para reducir los costos de adquisición y multiplicar tus márgenes de ganancia.</li>
+                                        <li><strong>Ecosistemas Escalables:</strong> Implementamos soluciones web y de marketing preparadas para crecer al ritmo de tu demanda.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Pequeño -->
+        <footer class="main-footer d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+            <div>
+                &copy; 2026 <strong class="text-teal">Yeyocompany</strong>. Todos los derechos reservados.
+            </div>
+            <div class="d-flex gap-3">
+                <a href="#">Privacidad</a>
+                <span>•</span>
+                <a href="#">Términos</a>
+                <span>•</span>
+                <a href="#">Soporte</a>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Barra de Navegación Lateral / Inferior -->
+    <nav class="navigation-bar">
+
+    <a href="#" class="nav-icon" data-bs-toggle="offcanvas" data-bs-target="#menuAjustes">
+    <i class="bi bi-list fs-1"></i>
+</a>
+
+    <a href="INDEX.html" class="nav-icon">
+        <i class="bi bi-house-door-fill"></i>
+        <span>Menú</span>
+    </a>
+
+    <a href="CONTACTOS.html" class="nav-icon">
+        <i class="bi bi-person-fill"></i>
+        <span>Contáctanos</span>
+    </a>
+
+    <a href="TARJETAS.html" class="nav-icon">
+        <i class="bi bi-book-fill"></i>
+        <span>Servicios</span>
+    </a>
+
+    <a href="#" class="nav-icon">
+        <i class="bi bi-info-circle-fill"></i>
+        <span>Información</span>
+    </a>
+
+    <a href="#" class="nav-icon">
+        <i class="bi bi-globe-americas"></i>
+        <span>Lenguaje</span>
+    </a>
+
+    <button class="btn-cerrar-sesion mt-lg-auto mb-lg-3">
+        Cerrar<br>sesión
+    </button>
+
+</nav>
+        <a href="TARJETAS.html" class="nav-icon"><i class="bi bi-book-fill"></i></a>
+        <a href="#" class="nav-icon"><i class="bi bi-info-circle-fill"></i></a>
+        <a href="#" class="nav-icon"><i class="bi bi-globe-americas"></i></a>
+        <button class="btn-cerrar-sesion mt-lg-auto mb-lg-3">Cerrar<br>sesión</button>
+    </nav>
+</div>
+
+<!-- Bootstrap 5 Bundle JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

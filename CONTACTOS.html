@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>YeyoCompany - Contacto</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            background-color: #eaf4f4;
+        }
+
+        .formulario {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #0d6e6e;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="formulario">
+
+        <div class="text-center mb-4">
+            <h1>Contacto YeyoCompany</h1>
+            <p>Completa el siguiente formulario para contactarnos.</p>
+        </div>
+
+        <form>
+
+            <!-- 1. DATOS PERSONALES -->
+
+            <h4 class="mb-3">Datos personales</h4>
+
+            <div class="row">
+
+                <div class="col-12 col-md-6 mb-3">
+                    <label class="form-label">Nombre completo</label>
+                    <input type="text" class="form-control" required>
+                </div>
+
+                <div class="col-12 col-md-6 mb-3">
+                    <label class="form-label">Apellidos</label>
+                    <input type="text" class="form-control" required>
+                </div>
+
+                <div class="col-12 col-md-6 mb-3">
+                    <label class="form-label">RUT / Identificación</label>
+                    <input type="text" class="form-control"
+                           placeholder="Ej: 12.345.678-9"
+                           required>
+                </div>
+
+                <div class="col-12 col-md-6 mb-3">
+                    <label class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" required>
+
+                    <div class="form-text">
+                        Tu correo no será compartido con terceros.
+                    </div>
+                </div>
+
+                <div class="col-12 mb-3">
+                    <label class="form-label">Teléfono de Contacto</label>
+
+                    <div class="input-group">
+                        <span class="input-group-text">+56 9</span>
+                        <input type="tel" class="form-control"
+                               placeholder="12345678"
+                               required>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- 2. PERFIL Y PREFERENCIAS -->
+
+            <h4 class="mb-3 mt-4">Información de perfil y preferencias</h4>
+
+            <div class="row">
+
+                <div class="col-12 col-md-6 mb-3">
+                    <label class="form-label">Región / Ciudad de Residencia</label>
+
+                    <select class="form-select" required>
+                        <option value="" disabled selected>
+                            Selecciona una región
+                        </option>
+                        <option>Los Ríos</option>
+                        <option>Los Lagos</option>
+                        <option>La Araucanía</option>
+                        <option>Biobío</option>
+                        <option>Metropolitana</option>
+                    </select>
+                </div>
+
+
+                <div class="col-12 col-md-6 mb-3">
+                    <label class="form-label">
+                        Fecha de Atención
+                    </label>
+
+                    <input type="date" class="form-control" required>
+                </div>
+
+
+                <div class="col-12 mb-3">
+
+                    <label class="form-label">
+                        Tipo de Consulta / Rol
+                    </label>
+
+                    <div class="form-check">
+                        <input class="form-check-input"
+                               type="radio"
+                               name="consulta"
+                               id="cliente"
+                               required>
+
+                        <label class="form-check-label" for="cliente">
+                            Cliente
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input"
+                               type="radio"
+                               name="consulta"
+                               id="emprendedor">
+
+                        <label class="form-check-label" for="emprendedor">
+                            Emprendedor
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input"
+                               type="radio"
+                               name="consulta"
+                               id="empresa">
+
+                        <label class="form-check-label" for="empresa">
+                            Empresa
+                        </label>
+                    </div>
+
+                </div>
+
+
+                <div class="col-12 mb-3">
+
+                    <label class="form-label">
+                        Nivel de Interés / Prioridad
+                    </label>
+
+                    <input type="range"
+                           class="form-range"
+                           min="1"
+                           max="10"
+                           value="5">
+
+                    <div class="d-flex justify-content-between">
+                        <span>Baja</span>
+                        <span>Alta</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 3. ARCHIVO Y MENSAJE -->
+
+            <h4 class="mb-3 mt-4">Documento y mensaje</h4>
+
+            <div class="row">
+
+                <div class="col-12 col-md-6 mb-3">
+
+                    <label class="form-label">
+                        Adjuntar Documento o Fotografía
+                    </label>
+
+                    <input type="file"
+                           class="form-control"
+                           accept=".pdf,.jpg,.jpeg,.png">
+
+                    <div class="form-text">
+                        Formatos permitidos: PDF, JPG y PNG.
+                    </div>
+
+                </div>
+
+
+                <div class="col-12 mb-3">
+
+                    <label class="form-label">
+                        Detalle o Comentarios Adicionales
+                    </label>
+
+                    <textarea class="form-control"
+                              rows="4"
+                              placeholder="Escribe tu mensaje aquí..."
+                              required></textarea>
+
+                </div>
+
+            </div>
+
+
+            <!-- 4. CONSENTIMIENTO -->
+
+            <h4 class="mb-3 mt-4">Consentimiento</h4>
+
+            <div class="form-check mb-3">
+
+                <input class="form-check-input"
+                       type="checkbox"
+                       id="terminos"
+                       required>
+
+                <label class="form-check-label" for="terminos">
+                    Acepto los
+                    <a href="#">Términos y Condiciones</a>.
+                </label>
+
+            </div>
+
+
+            <div class="form-check form-switch mb-4">
+
+                <input class="form-check-input"
+                       type="checkbox"
+                       role="switch"
+                       id="boletin">
+
+                <label class="form-check-label" for="boletin">
+                    Quiero suscribirme al boletín.
+                </label>
+
+            </div>
+
+
+            <!-- BOTONES -->
+
+            <div class="d-flex justify-content-end gap-2">
+
+                <button type="reset"
+                        class="btn btn-outline-secondary">
+                    Limpiar
+                </button>
+
+                <button type="submit"
+                        class="btn btn-primary">
+                    Enviar
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- Bootstrap JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
